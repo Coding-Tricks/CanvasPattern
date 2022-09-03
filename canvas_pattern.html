@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pattern design </title>
+       <style>
+            *{
+            padding: 0;
+            
+        }
+        body{
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+
+        
+       </style>
+    </head>
+    <body>
+        <div id="container">
+            
+            <canvas id="canvas" width="360" height="640" style="background:black" ></canvas>
+        </div>
+        
+        <script>
+     
+
+        
+
+            canvas=document.getElementById("canvas");
+            context=canvas. getContext("2d");
+            
+            y=100;
+            x=100;
+            rad=20;
+            dir=1;
+            xdir=1;
+            
+            function bounce(){
+            spd=10;
+            // context. clearRect(0,0,360,640);
+            context. beginPath();
+            context.arc(x,y,rad,0,2*Math. PI);
+           
+          
+            
+            y+=(5*dir);
+            x+=(5*xdir);
+
+            if (x==300){
+                context. strokeStyle="red";
+                
+            }
+            if (x==60){
+                context. strokeStyle="green";
+                
+            }
+            if (y==500){
+                context. strokeStyle="blue";
+               
+            }
+            if (y==40){
+                context. strokeStyle="yellow";
+                
+            }
+            // else{
+            //     context. strokeStyle="red";
+            // context. stroke();
+            // }
+            context. stroke();
+            if(x>=300)
+           {
+            xdir=-1;
+            
+           }
+            
+            if(x<=60)
+            {
+                xdir=1;
+            }
+            
+            if(y>=500)
+            dir=-1;
+            
+            if(y<=40)
+            {
+                dir=1;
+            }
+            
+            
+             setTimeout(bounce, spd);
+            }
+             setTimeout(bounce,1000)
+            
+        </script>
+    </body>
+</html>
